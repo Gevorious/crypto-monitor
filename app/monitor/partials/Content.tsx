@@ -18,7 +18,7 @@ const Content = () => {
     useCryptoCompare(apiKey);
 
   return (
-    <div className="w-full h-screen bg-black text-white font-mono overflow-hidden">
+    <div className="w-full h-[calc(100vh-4rem)] bg-black text-white font-mono overflow-hidden">
       <div className="p-4">
         <h1 className="text-2xl mb-4">Live Binance BTC/USDT Orders</h1>
         <div className="flex justify-between">

@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
       </div>
       <button
-        className={`px-4 py-1.5 rounded font-medium transition-colors 
+        className={`px-4 py-1.5 rounded font-medium transition-colors cursor-pointer
           ${
             shouldConnect
               ? 'bg-red-600 hover:bg-red-500 text-white'

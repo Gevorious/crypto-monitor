@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Home = () => {
   return (
-    <main className="h-screen w-full bg-black flex flex-col justify-center items-center text-white font-mono px-4">
+    <main className="h-[calc(100vh-4rem)] w-full flex flex-col justify-center items-center text-white font-mono px-4">
       <h1 className="text-4xl font-bold mb-4">Crypto Stream Monitor</h1>
       <p className="text-gray-400 mb-6 text-center max-w-md">
         Real-time BTC/USDT order feed using CryptoCompare WebSocket API. Navigate to the monitor to

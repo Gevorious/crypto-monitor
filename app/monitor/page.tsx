@@ -1,11 +1,7 @@
 import Content from './partials/Content';
 
 const MonitorPage = () => {
-  return (
-    <div>
-      <Content />
-    </div>
-  );
+  return <Content />;
 };
 
 export default MonitorPage;
