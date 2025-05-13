@@ -15,7 +15,6 @@ export const useAlertStore = create<AlertState>((set, get) => ({
     const now = Date.now();
     set((state) => ({
       cheap: state.cheap.filter((a) => {
-        console.log('CLEAROLDALERTS', now - a.timestamp);
         return now - a.timestamp < ONE_MINUTE_IN_MS;
       }),
       solid: state.solid.filter((a) => now - a.timestamp < ONE_MINUTE_IN_MS),
