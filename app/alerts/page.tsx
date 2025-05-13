@@ -1,7 +1,7 @@
-const AlertsPage = () => {
-  return (
-    <div>AlertsPage</div>
-  )
-}
+import Content from './partials/Content';
 
-export default AlertsPage
+const AlertsPage = () => {
+  return <Content />;
+};
+
+export default AlertsPage;

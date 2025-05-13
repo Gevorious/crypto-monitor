@@ -1,9 +1,23 @@
 'use client';
+import { ONE_MINUTE_IN_MS } from '@/app/constants';
+import { useAlertStore } from '@/stores/alertStore';
 import { useSocketStore } from '@/stores/socketStore';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const Navbar = () => {
-  const { shouldConnect, toggleConnection } = useSocketStore();
+  const { disconnect, shouldConnect, toggleConnection } = useSocketStore();
+  const { clearOldAlerts } = useAlertStore();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      clearOldAlerts();
+    }, ONE_MINUTE_IN_MS);
+    return () => {
+      clearInterval(interval);
+      disconnect();
+    };
+  }, []);
 
   return (
     <nav className="bg-gray-900 text-white fixed top-0 left-0 right-0 z-10 h-16 flex items-center px-6 justify-between border-b border-gray-700">

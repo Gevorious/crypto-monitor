@@ -1,4 +1,4 @@
-import { Order } from '@/hooks/types';
+import { Order } from '@/stores/orderStore/types';
 
 export type RefreshSpeedControlProps = {
   refreshSpeed: number;
@@ -7,5 +7,4 @@ export type RefreshSpeedControlProps = {
 
 export type OrdersListProps = {
   orders: Order[];
-  loading?: boolean;
 };

@@ -1,9 +1,8 @@
 'use client';
 import RefreshSpeedControl from './RefreshSpeedControl';
 import OrdersList from './OrdersList';
-import useCryptoCompare from '@/hooks/useCryptoCompare';
-
-const apiKey = process.env.NEXT_PUBLIC_CRYPTOCOMPARE_API_KEY!;
+import { useSocketStore } from '@/stores/socketStore';
+import { useOrderStore } from '@/stores/orderStore';
 
 const statusColorMap = {
   connected: { color: 'text-green-400', icon: '🟢' },
@@ -14,8 +13,8 @@ const statusColorMap = {
 };
 
 const Content = () => {
-  const { orders, refreshSpeed, setRefreshSpeed, isLoading, connectionStatus } =
-    useCryptoCompare(apiKey);
+  const { connectionStatus, refreshSpeed, setRefreshSpeed } = useSocketStore();
+  const { orders } = useOrderStore();
 
   return (
     <div className="w-full h-[calc(100vh-4rem)] bg-black text-white font-mono overflow-hidden">
@@ -28,7 +27,7 @@ const Content = () => {
             <span className="ml-1">{statusColorMap[connectionStatus || 'default'].icon}</span>
           </span>
         </div>
-        <OrdersList orders={orders} loading={isLoading} />
+        <OrdersList orders={orders} />
       </div>
     </div>
   );

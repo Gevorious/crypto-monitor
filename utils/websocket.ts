@@ -14,6 +14,7 @@ class WebSocketManager {
 
   connect() {
     if (this.socket) return;
+
     this.onStatusChange?.('connecting');
     this.socket = new WebSocket(this.url);
 
@@ -39,17 +40,11 @@ class WebSocketManager {
     this.socket.onerror = () => {
       this.onStatusChange?.('error');
     };
-
-    this.socket.onclose = () => {};
   }
 
   disconnect() {
     if (this.socket) {
       this.socket.close();
-      this.socket.onopen = null;
-      this.socket.onmessage = null;
-      this.socket.onerror = null;
-      this.socket.onclose = null;
       this.socket = null;
       this.onStatusChange?.('closed');
     }
