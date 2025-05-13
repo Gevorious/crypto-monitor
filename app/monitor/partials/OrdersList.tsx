@@ -2,7 +2,7 @@ import { OrdersListProps } from '../types';
 
 const OrdersList = ({ orders, loading }: OrdersListProps) => {
   return (
-    <div className="max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar">
+    <div className="max-h-[75vh] overflow-y-auto px-2 custom-scrollbar">
       <ul>
         <li className="flex justify-between py-1 border-b border-gray-500 text-gray-300 font-bold">
           <span className="w-[100px]">Time</span>
