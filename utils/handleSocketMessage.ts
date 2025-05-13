@@ -2,10 +2,11 @@ import { useAlertStore } from '@/stores/alertStore';
 import { useSocketStore } from '@/stores/socketStore';
 import { useOrderStore } from '@/stores/orderStore';
 import { Order } from '@/stores/orderStore/types';
+import { WebSocketData } from './types';
 
 let lastUpdateTime = 0;
 
-export function handleSocketMessage(data: any) {
+export function handleSocketMessage(data: WebSocketData) {
   if (data.message.TYPE !== '8') return;
 
   const now = Date.now();

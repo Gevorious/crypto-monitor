@@ -1,5 +1,4 @@
 export type WebSocketData = {
-  type: string;
   message: any;
 };
 
