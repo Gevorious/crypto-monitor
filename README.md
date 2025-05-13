@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🪙 Crypto Order Monitor
+A real-time WebSocket-powered monitoring dashboard for BTC/USDT orders on Binance. This project listens to streaming data from CryptoCompare, categorizes high-impact orders, and triggers alerts based on customizable thresholds.
 
-## Getting Started
+---
 
-First, run the development server:
+🔧 Tech Stack
+Next.js (App Router)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Zustand for state management
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tailwind CSS for UI styling
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+TypeScript for type safety
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+CryptoCompare WebSocket API for real-time market data
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+🚀 Features
+✅ Live order stream with price, volume, and side (Buy/Sell)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ Categorized alerts:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ Alerts auto-expire after 1 minute
 
-## Deploy on Vercel
+✅ Start/stop WebSocket stream globally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✅ Adjustable refresh rate
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✅ Clean and responsive UI with alert highlighting
+
+---
+
+📁 Project Structure
+bash
+Copy
+Edit
+.
+├── app/
+│ ├── monitor/ # Live order monitoring UI
+│ ├── alerts/ # Categorized alert display
+│ └── layout.tsx # Shared layout (includes global nav)
+├── components/ # Reusable UI components
+├── stores/
+│ ├── socketStore.ts # WebSocket connection & order stream
+│ ├── orderStore.ts # order stream data
+│ └── alertStore.ts # Alert handling & expiration logic
+├── utils/
+│ └── websocket.ts # WebSocketManager class
+│ └── ...
+
+---
+
+How It Works
+The app connects to CryptoCompare's WebSocket feed (TYPE 8).
+
+Orders are pushed into local state via Zustand.
+
+Matching logic categorizes alerts and stores them with timestamps.
+
+A cleanup interval removes alerts older than 1 minute.
+
+Navigation bar allows users to toggle the stream on/off.
+
+---
+
+🛠️ Setup & Development
+
+1. Install dependencies
+   npm install
+2. Add environment variables
+   Create .env.local file in root dir
+   Add the following variables
+   NEXT_PUBLIC_CRYPTOCOMPARE_API_KEY=549cb1b581930d63d1b2c41199379a46cc5877a8dfbb9cced34e763b8af16345
+   NEXT_PUBLIC_CRYPTOCOMPARE_API=wss://streamer.cryptocompare.com/v2
+3. Run the app
+   npm run dev
