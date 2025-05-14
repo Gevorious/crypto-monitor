@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { AlertState } from './types';
-import { ONE_MINUTE_IN_MS } from '@/app/constants';
+import { ONE_MINUTE_IN_MS } from '@/constants';
 
 export const useAlertStore = create<AlertState>((set, get) => ({
   cheap: [],
@@ -11,6 +11,7 @@ export const useAlertStore = create<AlertState>((set, get) => ({
       [type]: [alert, ...state[type]].filter((a) => Date.now() - a.timestamp < ONE_MINUTE_IN_MS),
     }));
   },
+
   clearOldAlerts: () => {
     const now = Date.now();
     set((state) => ({

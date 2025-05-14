@@ -1,5 +1,5 @@
 'use client';
-import { ONE_MINUTE_IN_MS } from '@/app/constants';
+import { ONE_MINUTE_IN_MS } from '@/constants';
 import { useAlertStore } from '@/stores/alertStore';
 import { useSocketStore } from '@/stores/socketStore';
 import Link from 'next/link';

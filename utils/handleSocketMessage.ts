@@ -1,8 +1,8 @@
-import { useAlertStore } from '@/stores/alertStore';
 import { useSocketStore } from '@/stores/socketStore';
 import { useOrderStore } from '@/stores/orderStore';
 import { Order } from '@/stores/orderStore/types';
 import { WebSocketData } from './types';
+import { handleAlerts } from './handleAlerts';
 
 let lastUpdateTime = 0;
 
@@ -29,40 +29,9 @@ export function handleSocketMessage(data: WebSocketData) {
   useOrderStore.getState().addOrder(order);
 
   if (price && volume) {
-    const total = price * volume;
-    const addAlert = useAlertStore.getState().addAlert;
-
-    if (price < 50_000) {
-      order.alertType = 'cheap';
-      addAlert('cheap', {
-        alertMessage: 'Cheap order',
-        price,
-        quantity: volume,
-        total,
-        timestamp,
-      });
-    }
-
-    if (volume > 10) {
-      order.alertType = 'solid';
-      addAlert('solid', {
-        alertMessage: 'Solid order',
-        price,
-        quantity: volume,
-        total,
-        timestamp,
-      });
-    }
-
-    if (total > 1_000_000) {
-      order.alertType = 'big';
-      addAlert('big', {
-        alertMessage: 'Big biznis here',
-        price,
-        quantity: volume,
-        total,
-        timestamp,
-      });
+    const alertType = handleAlerts(order, timestamp);
+    if (alertType) {
+      order.alertType = alertType;
     }
   }
 
