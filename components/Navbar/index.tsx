@@ -1,5 +1,5 @@
 'use client';
-import { ONE_MINUTE_IN_MS } from '@/constants';
+import { TEN_MINUTE_IN_MS } from '@/constants';
 import { useAlertStore } from '@/stores/alertStore';
 import { useSocketStore } from '@/stores/socketStore';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       clearOldAlerts();
-    }, ONE_MINUTE_IN_MS);
+    }, TEN_MINUTE_IN_MS);
     return () => {
       clearInterval(interval);
       disconnect();

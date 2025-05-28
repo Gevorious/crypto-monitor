@@ -8,15 +8,15 @@ const alertingRowMap = {
 
 const OrdersList = ({ orders }: OrdersListProps) => {
   return (
-    <div className="max-h-[75vh] overflow-y-auto px-2 custom-scrollbar">
-      <ul className="text-center text-[10px] md:text-[16px]">
-        <li className="flex justify-between py-1 border-b border-gray-500 text-gray-300 font-bold">
-          <span className="w-[100px]">Time</span>
-          <span className="w-[100px]">Symbol</span>
-          <span className="w-[100px]">Price</span>
-          <span className="w-[100px]">Volume</span>
-          <span className="w-[50px]">Side</span>
-        </li>
+    <div className="max-h-[75vh] relative overflow-y-auto px-2 custom-scrollbar text-center text-[10px] md:text-[16px]">
+      <div className="flex fixed left-0 right-0 justify-between bg-black z-1 border-b border-gray-500 py-1 mx-6 text-gray-300 font-bold">
+        <span className="w-[100px]">Time</span>
+        <span className="w-[100px]">Symbol</span>
+        <span className="w-[100px]">Price</span>
+        <span className="w-[100px]">Volume</span>
+        <span className="w-[50px]">Side</span>
+      </div>
+      <ul className="mt-8">
         {orders.map((order, i) => (
           <li
             key={`order-${i}`}
