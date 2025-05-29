@@ -22,10 +22,10 @@ const Content = () => {
         <h1 className="text-2xl mb-4">Live Binance BTC/USDT Orders</h1>
         <div className="flex justify-between">
           <RefreshSpeedControl refreshSpeed={refreshSpeed} setRefreshSpeed={setRefreshSpeed} />
-          <span className={statusColorMap[connectionStatus || 'default'].color}>
-            {connectionStatus}
+          <div className={statusColorMap[connectionStatus || 'default'].color}>
+            <span className="hidden md:inline-block">{connectionStatus}</span>
             <span className="ml-1">{statusColorMap[connectionStatus || 'default'].icon}</span>
-          </span>
+          </div>
         </div>
         <OrdersList orders={orders} />
       </div>
