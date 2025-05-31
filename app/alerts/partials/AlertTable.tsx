@@ -14,10 +14,10 @@ const AlertTable = ({ alerts }: AlertTableProps) => {
       <tbody>
         {alerts.map((alert, i) => (
           <tr key={`alert -${i}`} className="bg-gray-800 rounded">
-            <td>{alert.alertMessage}</td>
-            <td>${alert.price.toLocaleString()}</td>
-            <td>{alert.quantity}</td>
-            <td>${alert.total.toLocaleString()}</td>
+            <td className="pr-1 border-e">{alert.alertMessage}</td>
+            <td className="px-1 border-e">${alert.price.toLocaleString()}</td>
+            <td className="px-1 border-e">{alert.quantity}</td>
+            <td className="pl-1">${alert.total.toLocaleString()}</td>
           </tr>
         ))}
       </tbody>

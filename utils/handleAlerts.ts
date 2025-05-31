@@ -15,7 +15,7 @@ export const handleAlerts = ({ price, volume }: Order, timestamp: number) => {
   if (price < CHEAP_ORDER_PRICE_MAX) {
     alertType = 'cheap';
     addAlert('cheap', {
-      alertMessage: 'Cheap order',
+      alertMessage: 'Cheap',
       price,
       quantity: volume,
       total,
@@ -26,7 +26,7 @@ export const handleAlerts = ({ price, volume }: Order, timestamp: number) => {
   if (volume > SOLID_ORDER_VOL_MIN) {
     alertType = 'solid';
     addAlert('solid', {
-      alertMessage: 'Solid order',
+      alertMessage: 'Solid',
       price,
       quantity: volume,
       total,
@@ -37,7 +37,7 @@ export const handleAlerts = ({ price, volume }: Order, timestamp: number) => {
   if (total > BIG_ORDER_TOTAL_AMOUNT_MIN) {
     alertType = 'big';
     addAlert('big', {
-      alertMessage: 'Big biznis here',
+      alertMessage: 'Big biznis',
       price,
       quantity: volume,
       total,

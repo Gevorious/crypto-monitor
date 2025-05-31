@@ -8,7 +8,7 @@ const alertingRowMap = {
 
 const OrdersList = ({ orders }: OrdersListProps) => {
   return (
-    <div className="px-2 text-center text-[10px] md:text-[16px]">
+    <div className="px-2 text-center">
       <div className="flex justify-between border-b border-gray-500 pl-1 pr-2 text-gray-300 font-bold">
         <span className="w-[100px]">Time</span>
         <span className="w-[100px]">Symbol</span>

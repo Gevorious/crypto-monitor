@@ -18,9 +18,9 @@ const Content = () => {
 
   return (
     <div className="w-full h-[calc(100vh-4rem)] bg-black text-white font-mono overflow-hidden">
-      <div className="p-4">
+      <div className="py-4 px-2">
         <h1 className="text-2xl mb-4">Live Binance BTC/USDT Orders</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between px-2">
           <RefreshSpeedControl refreshSpeed={refreshSpeed} setRefreshSpeed={setRefreshSpeed} />
           <div className={statusColorMap[connectionStatus || 'default'].color}>
             <span className="hidden md:inline-block">{connectionStatus}</span>
