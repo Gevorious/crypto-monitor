@@ -1,4 +1,4 @@
-import { OrdersListProps } from '../types';
+import { useOrderStore } from '@/stores/orderStore';
 
 const alertingRowMap = {
   cheap: 'bg-blue-200 text-blue-900',
@@ -6,7 +6,9 @@ const alertingRowMap = {
   big: 'bg-rose-200 text-rose-900',
 };
 
-const OrdersList = ({ orders }: OrdersListProps) => {
+const OrdersList = () => {
+  const { orders } = useOrderStore();
+
   return (
     <div className="px-2 text-center">
       <div className="flex justify-between border-b border-gray-500 pl-1 pr-2 text-gray-300 font-bold">

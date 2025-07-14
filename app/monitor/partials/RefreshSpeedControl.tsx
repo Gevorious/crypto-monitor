@@ -1,6 +1,7 @@
-import { RefreshSpeedControlProps } from '../types';
+import { useSocketStore } from '@/stores/socketStore';
 
-const RefreshSpeedControl = ({ refreshSpeed, setRefreshSpeed }: RefreshSpeedControlProps) => {
+const RefreshSpeedControl = () => {
+  const { refreshSpeed, setRefreshSpeed } = useSocketStore();
   return (
     <div className="mb-4">
       <label htmlFor="speed" className="mr-2">
